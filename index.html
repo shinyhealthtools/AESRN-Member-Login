@@ -1,0 +1,2505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>AESRN Member Portal</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/favicon-32x32.png" type="image/png">
+    <meta name="google-site-verification" content="6zzEO7tBZ4x_xpC3utqGKn3jJekDVz2EkfZ7rCODSqQ" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- PRELOAD LOGO AND IMAGES -->
+<link rel="preload" as="image" href="https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/Networknewlogo.png">
+<link rel="preload" as="image" href="https://raw.githubusercontent.com/shinyhealthtools/AESRN-website/main/Networknewlogo.png">
+<link rel="preload" as="image" href="https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/malik.png">
+<link rel="preload" as="image" href="https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/razak.png">
+<link rel="preload" as="image" href="https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/Latif.png">
+<link rel="preload" as="image" href="https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/Edna.png">
+<link rel="preload" as="image" href="https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/Alhassan.png">
+<link rel="preload" as="image" href="https://raw.githubusercontent.com/shinyhealthtools/AESRN-website/main/Benjamin.png">
+<link rel="preload" as="image" href="https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/mudasir.png"> 
+    <style>
+        /* ═══════════════════════════════════════════════
+           DESIGN SYSTEM — AESRN INTERNATIONAL PORTAL
+           Inspired by: WHO, UN OCHA, World Bank portals
+           Palette: Deep Navy + Warm Ivory + Teal Accent
+        ═══════════════════════════════════════════════ */
+        :root {
+            --navy:        #0B1F3A;
+            --navy-mid:    #12305A;
+            --navy-light:  #1A4470;
+            --teal:        #0E7C86;
+            --teal-light:  #14A5B2;
+            --teal-soft:   rgba(14,124,134,0.10);
+            --gold:        #C8960C;
+            --gold-soft:   rgba(200,150,12,0.12);
+            --ivory:       #F7F5F0;
+            --white:       #FFFFFF;
+            --border:      #DDE3EC;
+            --border-mid:  #C5CDD8;
+            --text-primary:#0B1F3A;
+            --text-mid:    #2E4260;
+            --text-soft:   #5A6E85;
+            --text-faint:  #8A9AAF;
+            --danger:      #C0392B;
+            --danger-soft: rgba(192,57,43,0.08);
+            --success:     #1A7A4A;
+            --shadow-sm:   0 1px 4px rgba(11,31,58,0.07);
+            --shadow-md:   0 4px 16px rgba(11,31,58,0.10);
+            --shadow-lg:   0 12px 40px rgba(11,31,58,0.14);
+            --shadow-xl:   0 24px 64px rgba(11,31,58,0.18);
+            --radius-sm:   4px;
+            --radius-md:   8px;
+            --radius-lg:   12px;
+            --radius-xl:   16px;
+            --font-body:   'IBM Plex Sans', 'Segoe UI', sans-serif;
+            --font-display:'Playfair Display', Georgia, serif;
+            --font-mono:   'IBM Plex Mono', monospace;
+        }
+
+        /* DARK THEME */
+        body.dark-theme {
+            --navy:        #E8EDF5;
+            --navy-mid:    #C8D4E4;
+            --navy-light:  #A8B8CC;
+            --ivory:       #0D1B2E;
+            --white:       #132338;
+            --border:      #1E3150;
+            --border-mid:  #253D60;
+            --text-primary:#E8EDF5;
+            --text-mid:    #B8C8DA;
+            --text-soft:   #8498AE;
+            --text-faint:  #5A7088;
+            --shadow-sm:   0 1px 4px rgba(0,0,0,0.3);
+            --shadow-md:   0 4px 16px rgba(0,0,0,0.4);
+            --shadow-lg:   0 12px 40px rgba(0,0,0,0.5);
+            --shadow-xl:   0 24px 64px rgba(0,0,0,0.6);
+            --teal-soft:   rgba(14,124,134,0.15);
+            --gold-soft:   rgba(200,150,12,0.10);
+            --danger-soft: rgba(192,57,43,0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--ivory);
+            color: var(--text-primary);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+            -webkit-font-smoothing: antialiased;
+            font-size: 17px;
+        }
+
+        /* FIX 1 continued: Larger, clearer text throughout */
+        .form-input, .login-card-title, .login-card-sub, .page-title, .action-title, 
+        .sidebar-name, .member-card-name, .status-title, .status-sub, .nav-item,
+        .card-title, .topbar-name, .fc .fc-toolbar-title, .action-desc,
+        .login-brand-sub, .login-brand-eyebrow, .form-label, .terms-label,
+        .sidebar-role, .sidebar-workplace, .page-eyebrow, .page-date {
+            font-size: inherit;
+        }
+        
+        .login-card-title { font-size: 26px; font-weight: 700; }
+        .page-title { font-size: 30px; font-weight: 700; }
+        .action-title { font-size: 16px; font-weight: 600; }
+        .sidebar-name { font-size: 17px; font-weight: 700; }
+        .member-card-name { font-size: 15px; font-weight: 700; }
+        .nav-item { font-size: 15px; }
+        .status-title { font-size: 16px; }
+        .status-sub { font-size: 13px; }
+        .form-input { font-size: 16px; padding: 13px 14px 13px 42px; }
+        .form-label { font-size: 12px; }
+        .login-brand-sub { font-size: 16px; }
+        .login-brand-eyebrow { font-size: 12px; }
+        
+        /* FIX 2: FONT COLOR BLACK IN LIGHT MODE - NOT FADED */
+        body:not(.dark-theme) {
+            --text-primary: #000000;
+            --text-mid: #1a1a1a;
+            --text-soft: #2c3e4e;
+        }
+        
+        body:not(.dark-theme) .form-input,
+        body:not(.dark-theme) .action-title,
+        body:not(.dark-theme) .member-card-name,
+        body:not(.dark-theme) .login-card-title,
+        body:not(.dark-theme) .page-title,
+        body:not(.dark-theme) .status-text,
+        body:not(.dark-theme) .card-title,
+        body:not(.dark-theme) .sidebar-name,
+        body:not(.dark-theme) .nav-item,
+        body:not(.dark-theme) .topbar-name,
+        body:not(.dark-theme) .fc .fc-toolbar-title,
+        body:not(.dark-theme) .action-desc,
+        body:not(.dark-theme) .fc .fc-daygrid-day-number,
+        body:not(.dark-theme) .sidebar-role,
+        body:not(.dark-theme) .sidebar-workplace,
+        body:not(.dark-theme) .page-eyebrow,
+        body:not(.dark-theme) .page-date,
+        body:not(.dark-theme) .login-card-sub,
+        body:not(.dark-theme) .form-label,
+        body:not(.dark-theme) .terms-label {
+            color: #000000 !important;
+        }
+        
+
+        /* ═══════════════════════════════════════════════
+           SCROLLBAR
+        ═══════════════════════════════════════════════ */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 99px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--teal); }
+
+        /* ═══════════════════════════════════════════════
+           APP LOADER - FIX 4: LOGO REMOVED (never show it)
+        ═══════════════════════════════════════════════ */
+        .app-loader {
+            position: fixed; inset: 0;
+            background: var(--navy, #0B1F3A);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease;
+        }
+        .app-loader img {
+            display: block;
+            width: 210px; max-width: 65vw; height: auto;
+            margin-bottom: 30px;
+            animation: loader-logo-in 0.6s ease-out both;
+        }
+        @keyframes loader-logo-in {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .app-loader-bar {
+            position: relative;
+            width: 260px; height: 4px;
+            background: rgba(255,255,255,0.14);
+            border-radius: 99px;
+            overflow: hidden;
+            margin-top: 0;
+            box-shadow: 0 0 18px rgba(14,124,134,0.25);
+        }
+        .app-loader-fill {
+            position: relative;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--teal-light), var(--gold));
+            border-radius: 99px;
+            box-shadow: 0 0 12px rgba(212,175,55,0.55);
+            animation: bar-fill 3.5s cubic-bezier(0.45, 0.05, 0.25, 1) forwards;
+        }
+        .app-loader-fill::after {
+            content: '';
+            position: absolute; top: 0; bottom: 0; left: 0;
+            width: 60px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.75), transparent);
+            animation: bar-shimmer 1s linear infinite;
+        }
+        .app-loader-text {
+            color: rgba(255,255,255,0.7);
+            font-size: 12px; letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-top: 18px;
+            font-family: var(--font-mono);
+            animation: loader-text-pulse 1.6s ease-in-out infinite;
+        }
+        @keyframes loader-text-pulse {
+            0%, 100% { opacity: 0.55; }
+            50% { opacity: 1; }
+        }
+        @keyframes loader-pulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
+        }
+        @keyframes bar-fill {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        @keyframes bar-shimmer {
+            0% { transform: translateX(-60px); }
+            100% { transform: translateX(260px); }
+        }
+        
+        /* ============================================
+   FORCE FIX - Clear, Crisp Text Colors for Login Page
+   This ensures ALL text is readable and not faded
+   ============================================ */
+
+/* Force all text on login page to be clear and readable */
+.login-container,
+.login-brand,
+.login-form-panel,
+.login-card,
+.login-card * {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Force brand panel text to be pure white and readable */
+.login-brand-eyebrow {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500 !important;
+    letter-spacing: 3px !important;
+}
+
+.login-brand-title {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    text-shadow: none !important;
+}
+
+.login-brand-sub {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 400 !important;
+    line-height: 1.6 !important;
+}
+
+.stat-num {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-weight: 500 !important;
+    letter-spacing: 1.5px !important;
+}
+
+/* Force login card text to be crisp and black in light mode */
+.login-card-eyebrow {
+    color: #2A5C82 !important;
+    font-weight: 600 !important;
+    letter-spacing: 2.5px !important;
+}
+
+.login-card-title {
+    color: #000000 !important;
+    font-weight: 700 !important;
+    font-size: 26px !important;
+}
+
+.login-card-sub {
+    color: #444444 !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+}
+
+/* Form labels - crisp and clear */
+.form-label {
+    color: #333333 !important;
+    font-weight: 600 !important;
+    letter-spacing: 1px !important;
+    font-size: 12px !important;
+}
+
+/* Form input text */
+.form-input {
+    color: #000000 !important;
+    font-weight: 500 !important;
+    font-size: 15px !important;
+}
+
+.form-input::placeholder {
+    color: #999999 !important;
+    font-weight: 400 !important;
+}
+
+/* Terms label */
+.terms-label {
+    color: #555555 !important;
+    font-weight: 400 !important;
+    font-size: 13px !important;
+}
+
+.terms-label a {
+    color: #2A5C82 !important;
+    font-weight: 500 !important;
+}
+
+/* Error message text */
+.error-msg {
+    color: #c0392b !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+}
+
+.attempts-warning {
+    color: #c8960c !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+}
+
+/* Footer links */
+.go-to-aesrn {
+    color: #666666 !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+}
+
+.go-to-aesrn:hover {
+    color: #2A5C82 !important;
+}
+
+/* Copyright text */
+.login-copyright {
+    color: rgba(0, 0, 0, 0.5) !important;
+    font-weight: 400 !important;
+    font-size: 11px !important;
+}
+
+/* ============================================
+   DARK MODE TEXT COLORS - CRISP AND READABLE
+   ============================================ */
+
+body.dark-theme .login-card-eyebrow {
+    color: #5D8AA8 !important;
+}
+
+body.dark-theme .login-card-title {
+    color: #ffffff !important;
+}
+
+body.dark-theme .login-card-sub {
+    color: #cccccc !important;
+}
+
+body.dark-theme .form-label {
+    color: #dddddd !important;
+}
+
+body.dark-theme .form-input {
+    color: #ffffff !important;
+    background: #0D1B2E !important;
+}
+
+body.dark-theme .form-input::placeholder {
+    color: #888888 !important;
+}
+
+body.dark-theme .terms-label {
+    color: #cccccc !important;
+}
+
+body.dark-theme .terms-label a {
+    color: #5D8AA8 !important;
+}
+
+body.dark-theme .go-to-aesrn {
+    color: #aaaaaa !important;
+}
+
+body.dark-theme .go-to-aesrn:hover {
+    color: #5D8AA8 !important;
+}
+
+body.dark-theme .login-copyright {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* ============================================
+   FORCE BACKGROUND - MATCH MAIN WEBSITE
+   ============================================ */
+
+/* Force login container background */
+.login-container {
+    background: #fafafa !important;
+    position: relative !important;
+}
+
+body.dark-theme .login-container {
+    background: #0a0a0a !important;
+}
+
+/* Add subtle grid pattern */
+.login-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body.dark-theme .login-container::before {
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Keep blue brand panel with BACKGROUND IMAGE from official website */
+.login-brand {
+    background: linear-gradient(135deg, rgba(10,35,66,0.85) 0%, rgba(42,92,130,0.85) 100%), url('https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/Homeheropic2.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    position: relative;
+    z-index: 2;
+}
+
+/* Keep brand text white */
+.login-brand-eyebrow,
+.login-brand-title,
+.login-brand-sub,
+.stat-num,
+.stat-label {
+    color: #ffffff !important;
+}
+
+.login-brand-logo {
+    filter: brightness(0) invert(1) !important;
+}
+
+/* Keep login card white */
+.login-card {
+    background: #ffffff !important;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.08) !important;
+}
+
+body.dark-theme .login-card {
+    background: #132338 !important;
+    border: 1px solid #1e3150 !important;
+}
+
+/* Keep top accent bar */
+.login-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0e7c86, #c8960c);
+    border-radius: 16px 16px 0 0;
+}
+
+/* Ensure no blur effects */
+.login-card,
+.login-container,
+.login-brand,
+.login-form-panel {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+        /* ═══════════════════════════════════════════════
+           TRANSITION LOADERS
+        ═══════════════════════════════════════════════ */
+        .transition-loader {
+            position: fixed; inset: 0;
+            background: var(--ivory);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            z-index: 9000;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+        body.dark-theme .transition-loader { background: #0D1B2E; }
+        .transition-loader.active { opacity: 1; visibility: visible; }
+        .tl-ring {
+            width: 48px; height: 48px;
+            border: 2px solid var(--border);
+            border-top-color: var(--teal);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            margin-bottom: 16px;
+        }
+        .tl-text {
+            font-size: 11px; letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            font-family: var(--font-mono);
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ═══════════════════════════════════════════════
+           LOGIN PAGE - UPDATED BACKGROUND TO MATCH MAIN WEBSITE
+           (ONLY THE BACKGROUND CHANGED - EVERYTHING ELSE INTACT)
+        ═══════════════════════════════════════════════ */
+        .login-container {
+            display: none;
+            min-height: 100vh;
+            /* CHANGED: Background to match main website light mode */
+            background: #fafafa;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Dark theme login background - matches main website dark mode */
+        body.dark-theme .login-container {
+            background: #0a0a0a;
+        }
+
+        /* Subtle grid background - matches main website aesthetic */
+        .login-container::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+        
+        body.dark-theme .login-container::before {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        }
+        
+        /* Accent light - kept from original */
+        .login-container::after {
+            content: '';
+            position: absolute;
+            top: -200px; right: -200px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(14,124,134,0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .login-layout {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Left brand panel - UPDATED BACKGROUND IMAGE */
+        .login-brand {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+            max-width: 520px;
+        }
+        .login-brand-logo {
+            width: 70px; height: 70px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            margin-bottom: 40px;
+        }
+        .login-brand-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 12px; letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--teal-light);
+            margin-bottom: 16px;
+        }
+        .login-brand-title {
+            font-family: var(--font-display);
+            font-size: 42px; line-height: 1.15;
+            color: #FFFFFF;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+        .login-brand-sub {
+            font-size: 16px; line-height: 1.7;
+            color: rgba(255,255,255,0.6);
+            max-width: 360px;
+            font-weight: 400;
+        }
+        .login-brand-rule {
+            width: 50px; height: 2px;
+            background: var(--teal-light);
+            margin: 32px 0;
+        }
+        .login-brand-stats {
+            display: flex;
+            gap: 32px;
+        }
+        .stat-block {}
+        .stat-num {
+            font-family: var(--font-display);
+            font-size: 30px; font-weight: 600;
+            color: #FFFFFF;
+        }
+        .stat-label {
+            font-size: 11px; letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-top: 4px;
+        }
+
+        /* Right form panel - KEPT ORIGINAL STYLING */
+        .login-form-panel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 40px;
+        }
+        .login-card {
+            background: var(--white, #FFFFFF);
+            border-radius: var(--radius-xl);
+            padding: 48px 44px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+        }
+        body.dark-theme .login-card {
+            background: #132338;
+            border: 1px solid #1E3150;
+        }
+        /* Top accent bar */
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--teal), var(--gold));
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        }
+        .login-card-header {
+            margin-bottom: 36px;
+        }
+        .login-card-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 11px; letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 8px;
+        }
+        .login-card-title {
+            font-size: 26px; font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.3px;
+        }
+        .login-card-sub {
+            font-size: 14px; color: var(--text-soft);
+            margin-top: 8px; line-height: 1.5;
+        }
+
+        /* Form elements - KEPT ORIGINAL */
+        .form-group { margin-bottom: 22px; }
+        .form-label {
+            display: flex; align-items: center;
+            gap: 6px;
+            font-size: 12px; font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-soft);
+            margin-bottom: 8px;
+        }
+        .required-dot {
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: var(--danger);
+            display: inline-block;
+        }
+        .input-wrap {
+            position: relative;
+        }
+        .input-icon {
+            position: absolute;
+            left: 14px; top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-faint);
+            font-size: 14px;
+            pointer-events: none;
+            transition: color 0.2s;
+        }
+        .form-input {
+            width: 100%;
+            padding: 13px 14px 13px 42px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            font-size: 15px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            background: var(--ivory);
+            color: var(--text-primary);
+            transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+            outline: none;
+        }
+        body.dark-theme .form-input {
+            background: #0D1B2E;
+            border-color: #1E3150;
+            color: #E8EDF5;
+        }
+        .form-input:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(14,124,134,0.12);
+            background: var(--white);
+        }
+        body.dark-theme .form-input:focus {
+            background: #162D48;
+        }
+        .form-input:focus + .input-icon,
+        .input-wrap:focus-within .input-icon {
+            color: var(--teal);
+        }
+        .toggle-password {
+            position: absolute; right: 12px; top: 50%;
+            transform: translateY(-50%);
+            background: none; border: none;
+            cursor: pointer;
+            color: var(--text-faint);
+            font-size: 14px;
+            transition: color 0.2s;
+            padding: 4px;
+        }
+        .toggle-password:hover { color: var(--teal); }
+
+        /* Terms checkbox - KEPT ORIGINAL */
+        .terms-row {
+            display: flex; align-items: flex-start; gap: 10px;
+            margin: 20px 0 24px;
+        }
+        .terms-checkbox {
+            width: 18px; height: 18px; flex-shrink: 0;
+            margin-top: 2px;
+            accent-color: var(--teal);
+            cursor: pointer;
+        }
+        .terms-label {
+            font-size: 13px; color: var(--text-soft);
+            line-height: 1.5; cursor: pointer;
+        }
+        .terms-label a { color: var(--teal); text-decoration: none; }
+        .terms-label a:hover { text-decoration: underline; }
+
+        /* Submit button - KEPT ORIGINAL */
+        .login-btn {
+            width: 100%;
+            background: var(--navy, #0B1F3A);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 14px; font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .login-btn:hover:not(:disabled) {
+            background: var(--navy-light, #1A4470);
+            box-shadow: var(--shadow-md);
+        }
+        .login-btn:disabled {
+            opacity: 0.5; cursor: not-allowed;
+        }
+        .login-btn-inner {
+            display: flex; align-items: center;
+            justify-content: center; gap: 8px;
+        }
+
+        .error-msg {
+            display: none;
+            background: var(--danger-soft);
+            border: 1px solid rgba(192,57,43,0.2);
+            border-left: 3px solid var(--danger);
+            padding: 12px 14px;
+            border-radius: var(--radius-md);
+            font-size: 13px; font-weight: 500;
+            color: var(--danger);
+            margin-top: 14px;
+        }
+        .attempts-warning {
+            display: none;
+            background: rgba(200,150,12,0.08);
+            border: 1px solid rgba(200,150,12,0.2);
+            padding: 12px 14px;
+            border-radius: var(--radius-md);
+            font-size: 13px; font-weight: 500;
+            color: var(--gold, #C8960C);
+            margin-top: 10px;
+        }
+
+        .login-footer {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            display: flex; align-items: center;
+            justify-content: space-between;
+        }
+        .go-to-aesrn {
+            display: flex; align-items: center; gap: 7px;
+            color: var(--text-soft);
+            text-decoration: none;
+            font-size: 13px; font-weight: 500;
+            transition: color 0.2s;
+        }
+        .go-to-aesrn:hover { color: var(--teal); }
+        .go-to-aesrn i { font-size: 12px; }
+
+        .theme-toggle-login {
+            background: none; border: 1px solid var(--border);
+            width: 36px; height: 36px;
+            border-radius: var(--radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            color: var(--text-soft);
+            font-size: 14px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .theme-toggle-login:hover { border-color: var(--teal); color: var(--teal); }
+
+        /* Login page copyright */
+        .login-copyright {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            padding: 14px 40px;
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 11px; letter-spacing: 0.5px;
+            color: rgba(255,255,255,0.3);
+            font-family: var(--font-mono);
+            z-index: 1;
+        }
+
+        /* Mobile login */
+        @media (max-width: 820px) {
+            .login-brand { display: none; }
+            .login-form-panel { padding: 24px 16px; }
+            .login-card { padding: 36px 28px; }
+            .login-copyright { flex-direction: column; gap: 4px; text-align: center; font-size: 10px; }
+        }
+
+        /* ═══════════════════════════════════════════════
+           DASHBOARD - ALL ORIGINAL STYLES PRESERVED
+           (Keeping everything exactly as it was)
+        ═══════════════════════════════════════════════ */
+        .dashboard {
+            display: none;
+            min-height: 100vh;
+            background: var(--ivory);
+        }
+
+        /* Top navigation bar */
+        .topbar {
+            height: 64px;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center;
+            padding: 0 32px;
+            gap: 20px;
+            position: sticky; top: 0; z-index: 500;
+            box-shadow: var(--shadow-sm);
+            transition: background 0.3s, border-color 0.3s;
+        }
+        body.dark-theme .topbar { background: #132338; border-color: #1E3150; }
+
+        .topbar-brand {
+            display: flex; align-items: center; gap: 12px;
+            flex-shrink: 0;
+        }
+        .topbar-logo {
+            width: 38px; height: 38px; object-fit: contain;
+        }
+        .topbar-name {
+            font-size: 16px; font-weight: 700;
+            color: var(--navy, #0B1F3A);
+            letter-spacing: 0.3px;
+        }
+        body.dark-theme .topbar-name { color: #E8EDF5; }
+        .topbar-divider {
+            width: 1px; height: 28px;
+            background: var(--border);
+            flex-shrink: 0;
+        }
+        .topbar-section-label {
+            font-family: var(--font-mono);
+            font-size: 11px; letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-faint);
+        }
+
+        .topbar-right {
+            margin-left: auto;
+            display: flex; align-items: center; gap: 12px;
+        }
+
+        .topbar-time {
+            font-family: var(--font-mono);
+            font-size: 12px; color: var(--text-faint);
+            padding: 7px 14px;
+            background: var(--ivory);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            transition: background 0.3s;
+        }
+        body.dark-theme .topbar-time { background: #0D1B2E; border-color: #1E3150; }
+
+        .icon-btn {
+            width: 38px; height: 38px;
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            color: var(--text-soft);
+            font-size: 14px;
+            transition: border-color 0.2s, color 0.2s, background 0.2s;
+        }
+        .icon-btn:hover { border-color: var(--teal); color: var(--teal); background: var(--teal-soft); }
+
+        .logout-btn-top {
+            display: flex; align-items: center; gap: 7px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-mid);
+            padding: 8px 18px;
+            border-radius: var(--radius-sm);
+            font-size: 13px; font-weight: 600;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: all 0.2s;
+        }
+        .logout-btn-top:hover {
+            border-color: var(--danger);
+            color: var(--danger);
+            background: var(--danger-soft);
+        }
+        .logout-btn-top i { font-size: 12px; }
+
+        /* Sidebar + main layout */
+        .dashboard-body {
+            display: flex;
+            min-height: calc(100vh - 64px);
+        }
+
+        .sidebar {
+            width: 280px; flex-shrink: 0;
+            background: var(--white);
+            border-right: 1px solid var(--border);
+            padding: 32px 0;
+            display: flex; flex-direction: column;
+            transition: background 0.3s, border-color 0.3s;
+        }
+        body.dark-theme .sidebar { background: #132338; border-color: #1E3150; }
+
+        .sidebar-profile {
+            padding: 0 24px 28px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .sidebar-photo {
+            width: 80px; height: 80px;
+            border-radius: 50%; object-fit: cover;
+            border: 2px solid var(--border);
+            margin: 0 auto 14px;
+            display: block;
+            background: var(--ivory);
+            box-shadow: var(--shadow-sm);
+        }
+        .sidebar-name {
+            font-size: 17px; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+        .sidebar-role {
+            font-size: 12px; letter-spacing: 0.5px;
+            color: var(--teal);
+            font-weight: 600;
+        }
+        .sidebar-workplace {
+            font-size: 12px; color: var(--text-faint);
+            margin-top: 6px; line-height: 1.4;
+        }
+
+        .sidebar-section-label {
+            font-family: var(--font-mono);
+            font-size: 10px; letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            padding: 0 24px;
+            margin-bottom: 12px;
+        }
+
+        .sidebar-nav {
+            flex: 1;
+        }
+        .nav-item {
+            display: flex; align-items: center; gap: 12px;
+            padding: 12px 24px;
+            cursor: pointer;
+            color: var(--text-soft);
+            font-size: 15px; font-weight: 500;
+            border-left: 3px solid transparent;
+            transition: all 0.15s;
+            position: relative;
+        }
+        .nav-item:hover {
+            background: var(--teal-soft);
+            color: var(--teal);
+        }
+        .nav-item.active {
+            border-left-color: var(--teal);
+            background: var(--teal-soft);
+            color: var(--teal);
+            font-weight: 600;
+        }
+        .nav-item i {
+            width: 18px; text-align: center;
+            font-size: 14px; flex-shrink: 0;
+        }
+        .nav-badge {
+            margin-left: auto;
+            background: var(--teal);
+            color: white;
+            font-size: 10px; font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 99px;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar-footer {
+            padding: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 12px; color: var(--text-faint);
+            line-height: 1.6;
+        }
+
+        /* Main content */
+        .main-content {
+            flex: 1;
+            padding: 32px 36px;
+            overflow-y: auto;
+            min-width: 0;
+        }
+        @media (max-width: 900px) {
+            .main-content { padding: 20px 16px; }
+        }
+
+        /* Page header */
+        .page-header {
+            display: flex; align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 28px;
+            flex-wrap: wrap; gap: 12px;
+        }
+        .page-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 11px; letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 8px;
+        }
+        .page-title {
+            font-family: var(--font-display);
+            font-size: 30px; font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.3px;
+        }
+        .page-date {
+            font-size: 12px; color: var(--text-faint);
+            font-family: var(--font-mono);
+            margin-top: 5px;
+        }
+
+        /* Status banner */
+        .status-banner {
+            background: linear-gradient(135deg, var(--navy, #0B1F3A) 0%, #12305A 100%);
+            border-radius: var(--radius-lg);
+            padding: 22px 30px;
+            margin-bottom: 28px;
+            display: flex; align-items: center; gap: 20px;
+            position: relative; overflow: hidden;
+        }
+        .status-banner::after {
+            content: '';
+            position: absolute; right: -20px; top: -20px;
+            width: 150px; height: 150px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+        .status-banner::before {
+            content: '';
+            position: absolute; right: 20px; top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--teal-light), var(--gold));
+            opacity: 0.5;
+        }
+        .status-dot {
+            width: 12px; height: 12px; border-radius: 50%;
+            background: #2ECC71; flex-shrink: 0;
+            box-shadow: 0 0 0 3px rgba(46,204,113,0.2);
+            animation: pulse-dot 2s infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { box-shadow: 0 0 0 3px rgba(46,204,113,0.2); }
+            50% { box-shadow: 0 0 0 8px rgba(46,204,113,0.1); }
+        }
+        .status-text {
+            flex: 1;
+        }
+        .status-title {
+            font-size: 16px; font-weight: 600;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 3px;
+        }
+        .status-sub {
+            font-size: 13px; color: rgba(255,255,255,0.55);
+            font-family: var(--font-mono);
+        }
+        .status-session-id {
+            font-family: var(--font-mono);
+            font-size: 11px; color: rgba(255,255,255,0.35);
+            letter-spacing: 1px;
+        }
+
+        /* ═══════════════════════════════════════════════
+           GRID LAYOUT - FIX 5: REDUCED CARD SIZE, CALENDAR FITS ALL DATES
+        ═══════════════════════════════════════════════ */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        @media (max-width: 1100px) {
+            .content-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Card base - REDUCED PADDING */
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            transition: background 0.3s, border-color 0.3s;
+        }
+        body.dark-theme .card { background: #132338; border-color: #1E3150; }
+        .card-header {
+            padding: 14px 20px 12px;
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center;
+            justify-content: space-between;
+        }
+        body.dark-theme .card-header { border-color: #1E3150; }
+        .card-title {
+            font-size: 13px; font-weight: 700;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--text-mid);
+            display: flex; align-items: center; gap: 8px;
+        }
+        .card-title i { color: var(--teal); font-size: 13px; }
+        .card-body { padding: 16px 18px; }
+
+        /* Action items - COMPACT */
+        .action-list { display: flex; flex-direction: column; gap: 4px; }
+        .action-item {
+            display: flex; align-items: center;
+            padding: 10px 12px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s;
+            border: 1px solid transparent;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+        }
+        .action-item:hover {
+            background: var(--teal-soft);
+            border-color: rgba(14,124,134,0.15);
+        }
+        .action-item:active { transform: scale(0.99); }
+        .action-icon-wrap {
+            width: 38px; height: 38px; flex-shrink: 0;
+            background: var(--ivory);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+            transition: background 0.15s, border-color 0.15s;
+        }
+        body.dark-theme .action-icon-wrap { background: #0D1B2E; border-color: #1E3150; }
+        .action-item:hover .action-icon-wrap {
+            background: rgba(14,124,134,0.12);
+            border-color: rgba(14,124,134,0.25);
+        }
+        .action-info { flex: 1; min-width: 0; }
+        .action-title {
+            font-size: 15px; font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+        .action-desc {
+            font-size: 12px; color: var(--text-faint);
+        }
+        .action-arrow {
+            color: var(--text-faint);
+            font-size: 12px;
+            transition: transform 0.15s, color 0.15s;
+        }
+        .action-item:hover .action-arrow {
+            transform: translateX(3px);
+            color: var(--teal);
+        }
+
+        /* Calendar - FIX 5: SHOWS ALL DAYS INCLUDING 29-31 */
+        #miniCalendar {
+            --fc-border-color: var(--border);
+            --fc-today-bg: var(--teal-soft);
+            --fc-event-bg-color: var(--teal);
+            --fc-event-border-color: var(--teal);
+            font-size: 12px;
+        }
+        .fc .fc-toolbar-title {
+            font-size: 13px !important; font-weight: 600;
+            color: var(--text-primary);
+        }
+        .fc .fc-col-header-cell {
+            font-size: 11px; letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 6px 0;
+        }
+        .fc .fc-daygrid-day-number {
+            font-size: 12px;
+            color: var(--text-soft);
+            padding: 4px;
+        }
+        .fc .fc-day-today .fc-daygrid-day-number {
+            background: var(--teal);
+            color: white;
+            border-radius: 50%;
+            width: 26px; height: 26px;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700;
+            margin: 2px auto;
+        }
+        .fc-theme-standard td, .fc-theme-standard th { border-color: var(--border) !important; }
+        .fc .fc-daygrid-day-frame { 
+            min-height: 48px; 
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+        }
+        .fc .fc-daygrid-day-events { display: none; }
+        .fc .fc-daygrid-day-top { justify-content: flex-end; padding: 4px 6px 0 0; }
+
+        /* Members section */
+        .section-header {
+            display: flex; align-items: center; gap: 12px;
+            margin-bottom: 20px;
+        }
+        .section-title-text {
+            font-size: 13px; font-weight: 700;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--text-mid);
+        }
+        .section-count {
+            background: var(--teal-soft);
+            color: var(--teal);
+            font-size: 11px; font-weight: 700;
+            padding: 3px 9px; border-radius: 99px;
+            border: 1px solid rgba(14,124,134,0.15);
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 18px;
+        }
+        .member-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 22px 18px;
+            cursor: pointer;
+            transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        body.dark-theme .member-card { background: #132338; border-color: #1E3150; }
+        .member-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--teal), var(--gold));
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .member-card:hover { border-color: rgba(14,124,134,0.3); box-shadow: var(--shadow-md); }
+        .member-card:hover::before { opacity: 1; }
+        .member-card:active { transform: scale(0.99); }
+
+        .member-card-photo {
+            width: 70px; height: 70px;
+            border-radius: 50%; object-fit: cover;
+            border: 2px solid var(--border);
+            margin: 0 auto 12px;
+            display: block;
+            background: var(--ivory);
+            transition: border-color 0.2s;
+        }
+        .member-card:hover .member-card-photo { border-color: var(--teal); }
+        .member-card-name {
+            font-size: 15px; font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+        .member-card-role {
+            font-size: 11px; letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--teal);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .member-card-institution {
+            font-size: 12px; color: var(--text-faint);
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+        .member-card-cta {
+            display: flex; align-items: center; justify-content: center; gap: 5px;
+            font-size: 12px; font-weight: 600;
+            color: var(--teal);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .member-card:hover .member-card-cta { opacity: 1; }
+
+        /* Admin return button */
+        .admin-return-btn {
+            display: none;
+            align-items: center; gap: 7px;
+            background: var(--gold-soft);
+            border: 1px solid rgba(200,150,12,0.25);
+            color: var(--gold, #C8960C);
+            padding: 8px 18px;
+            border-radius: var(--radius-sm);
+            font-size: 13px; font-weight: 600;
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: all 0.2s;
+            letter-spacing: 0.3px;
+        }
+        .admin-return-btn:hover {
+            background: rgba(200,150,12,0.2);
+        }
+        .admin-return-btn i { font-size: 12px; }
+
+        /* ═══════════════════════════════════════════════
+           FORM CONTAINER
+        ═══════════════════════════════════════════════ */
+        .form-container {
+            display: none; position: fixed; inset: 0;
+            background: var(--white);
+            z-index: 5000; flex-direction: column;
+        }
+        body.dark-theme .form-container { background: #0D1B2E; }
+        .form-header {
+            height: 60px;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+            display: flex; align-items: center; gap: 16px;
+            flex-shrink: 0;
+        }
+        body.dark-theme .form-header { background: #132338; border-color: #1E3150; }
+        .form-header-title {
+            font-size: 14px; font-weight: 600;
+            color: var(--text-primary);
+        }
+        .back-btn {
+            display: flex; align-items: center; gap: 7px;
+            background: none; border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 13px; font-weight: 600;
+            color: var(--text-mid);
+            cursor: pointer; font-family: var(--font-body);
+            transition: all 0.2s;
+        }
+        .back-btn:hover { border-color: var(--teal); color: var(--teal); }
+        iframe { width: 100%; flex: 1; border: none; background: var(--white); }
+        body.dark-theme iframe { background: #0D1B2E; }
+        .loading-overlay {
+            position: absolute; inset: 0;
+            background: var(--white);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            z-index: 10;
+        }
+        body.dark-theme .loading-overlay { background: #0D1B2E; }
+        .loading-ring {
+            width: 40px; height: 40px;
+            border: 2px solid var(--border);
+            border-top-color: var(--teal);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            margin-bottom: 12px;
+        }
+        .loading-text {
+            font-size: 12px; color: var(--text-faint);
+            letter-spacing: 1.5px; text-transform: uppercase;
+            font-family: var(--font-mono);
+        }
+
+        /* ═══════════════════════════════════════════════
+           MODALS & OVERLAYS
+        ═══════════════════════════════════════════════ */
+        .modal-overlay {
+            display: none; position: fixed; inset: 0;
+            background: rgba(11,31,58,0.6);
+            backdrop-filter: blur(3px);
+            align-items: center; justify-content: center;
+            z-index: 2000;
+        }
+        .modal-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 36px 32px;
+            max-width: 380px; width: 100%;
+            text-align: center;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border);
+            animation: modal-in 0.2s ease-out;
+        }
+        body.dark-theme .modal-card { background: #132338; border-color: #1E3150; }
+        @keyframes modal-in {
+            0% { opacity: 0; transform: scale(0.93) translateY(8px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .modal-icon {
+            width: 60px; height: 60px;
+            border-radius: var(--radius-lg);
+            background: var(--danger-soft);
+            border: 1px solid rgba(192,57,43,0.15);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px; color: var(--danger);
+        }
+        .modal-title {
+            font-size: 18px; font-weight: 700;
+            color: var(--text-primary); margin-bottom: 8px;
+        }
+        .modal-sub {
+            font-size: 14px; color: var(--text-soft);
+        }
+        .modal-actions {
+            display: flex; gap: 12px;
+            margin-top: 24px;
+        }
+        .btn-secondary {
+            flex: 1; padding: 11px;
+            background: var(--ivory); border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            font-size: 14px; font-weight: 600;
+            color: var(--text-mid); cursor: pointer;
+            font-family: var(--font-body);
+            transition: all 0.2s;
+        }
+        body.dark-theme .btn-secondary { background: #0D1B2E; border-color: #1E3150; color: #B8C8DA; }
+        .btn-secondary:hover { border-color: var(--teal); }
+        .btn-danger {
+            flex: 1; padding: 11px;
+            background: var(--danger);
+            border: none; border-radius: var(--radius-md);
+            font-size: 14px; font-weight: 600;
+            color: white; cursor: pointer;
+            font-family: var(--font-body);
+            transition: all 0.2s;
+        }
+        .btn-danger:hover { background: #a93226; box-shadow: 0 4px 12px rgba(192,57,43,0.3); }
+
+        /* Inactivity warning */
+        .inactivity-box {
+            display: none; position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 36px 32px; text-align: center;
+            z-index: 10000;
+            box-shadow: var(--shadow-xl);
+            min-width: 320px;
+            animation: modal-in 0.2s ease-out;
+        }
+        body.dark-theme .inactivity-box { background: #132338; border-color: #1E3150; }
+        .inactivity-icon {
+            width: 60px; height: 60px;
+            border-radius: var(--radius-lg);
+            background: rgba(200,150,12,0.1);
+            border: 1px solid rgba(200,150,12,0.2);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 24px; color: var(--gold);
+        }
+        .inactivity-timer {
+            font-family: var(--font-mono);
+            font-size: 38px; font-weight: 500;
+            color: var(--danger); margin: 12px 0;
+        }
+        .inactivity-title {
+            font-size: 17px; font-weight: 700;
+            color: var(--text-primary); margin-bottom: 5px;
+        }
+        .inactivity-sub {
+            font-size: 13px; color: var(--text-soft);
+        }
+        .keep-btn {
+            margin-top: 20px;
+            width: 100%; padding: 12px;
+            background: var(--navy, #0B1F3A);
+            color: white; border: none;
+            border-radius: var(--radius-md);
+            font-size: 14px; font-weight: 600;
+            cursor: pointer; font-family: var(--font-body);
+            transition: background 0.2s;
+        }
+        .keep-btn:hover { background: var(--navy-light, #1A4470); }
+
+        /* Logout notification */
+        .logout-notification {
+            display: none; position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 44px 40px; text-align: center;
+            z-index: 6000;
+            box-shadow: var(--shadow-xl);
+            min-width: 320px;
+        }
+        body.dark-theme .logout-notification { background: #132338; border-color: #1E3150; }
+        .logout-emoji { font-size: 48px; margin-bottom: 18px; }
+        .logout-title {
+            font-size: 22px; font-weight: 700;
+            color: var(--text-primary); margin-bottom: 8px;
+        }
+        .logout-countdown {
+            font-size: 13px; color: var(--text-faint);
+            font-family: var(--font-mono);
+        }
+        
+                /* ============================================
+           FIX: FORCE PROFILE IMAGES TO LOAD
+           Ensures Abdul Latif and all member photos display correctly
+        ============================================ */
+        
+        /* Force all profile images to load and display properly */
+        .sidebar-photo,
+        .member-card-photo {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background-color: #f0f0f0 !important;
+            object-fit: cover !important;
+        }
+        
+        /* Fix for broken images - show fallback styling */
+        .sidebar-photo:error,
+        .member-card-photo:error {
+            background: linear-gradient(135deg, #0B1F3A, #1A4470) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        /* Ensure images load with proper cache bypass */
+        .sidebar-photo {
+            min-width: 80px !important;
+            min-height: 80px !important;
+        }
+        
+        .member-card-photo {
+            min-width: 70px !important;
+            min-height: 70px !important;
+        }
+        
+        /* Force image loading with higher priority */
+        img[src*="Latif.png"],
+        img[src*="malik.png"],
+        img[src*="razak.png"],
+        img[src*="Edna.png"],
+        img[src*="Alhassan.png"],
+        img[src*="mudasir.png"] {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        /* ═══════════════════════════════════════════════
+           SIDEBAR MOBILE RESPONSIVE
+        ═══════════════════════════════════════════════ */
+        @media (max-width: 768px) {
+            .sidebar { display: none; }
+            .topbar { padding: 0 16px; }
+            .topbar-section-label { display: none; }
+            .topbar-divider { display: none; }
+            .topbar-time { display: none; }
+            .topbar-name { font-size: 14px; }
+            .logout-btn-top span { display: none; }
+            .main-content { padding: 16px; }
+        }
+
+        /* ═══════════════════════════════════════════════
+           UTILITIES
+        ═══════════════════════════════════════════════ */
+        .mt-20 { margin-top: 20px; }
+        .mb-20 { margin-bottom: 20px; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<!-- APP LOADER -->
+<div class="app-loader" id="appLoader">
+    <img src="https://raw.githubusercontent.com/shinyhealthtools/AESRN-website/main/Networknewlogo.png" alt="AESRN">
+    <div class="app-loader-bar">
+        <div class="app-loader-fill"></div>
+    </div>
+    <div class="app-loader-text">Initializing Member Login Portal</div>
+</div>
+
+<!-- TRANSITION LOADERS -->
+<div class="transition-loader" id="globalCircleLoader">
+    <div class="tl-ring"></div>
+    <div class="tl-text">Authenticating</div>
+</div>
+<div class="transition-loader" id="pageTransitionLoader">
+    <div class="tl-ring"></div>
+    <div class="tl-text" id="pageTransitionText">Loading</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     LOGIN PAGE - UPDATED BACKGROUND ONLY
+     (Everything else remains exactly the same)
+══════════════════════════════════════ -->
+<div class="login-container" id="loginContainer">
+    <div class="login-layout">
+        <!-- Brand panel - UPDATED BACKGROUND WITH OFFICIAL WEBSITE IMAGE -->
+        <div class="login-brand">
+            <div class="login-brand-eyebrow">Member Portal — Restricted Access</div>
+            <div class="login-brand-title">African Emerging Scholars Research Network</div>
+            <div class="login-brand-rule"></div>
+            <div class="login-brand-sub">Secure access to research assignments, submission workflows, and collaborative materials for registered network members.</div>
+            <div class="login-brand-stats">
+                <div class="stat-block">
+                    <div class="stat-num">5+</div>
+                    <div class="stat-label">Active Members</div>
+                </div>
+                <div class="stat-block">
+                    <div class="stat-num">GH</div>
+                    <div class="stat-label">Region</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form panel - UNCHANGED -->
+        <div class="login-form-panel">
+            <div class="login-card" id="loginCard">
+                <div class="login-card-header">
+                    <div class="login-card-eyebrow">Secure Sign-In</div>
+                    <div class="login-card-title">Member Login</div>
+                    <div class="login-card-sub">Enter your registered credentials to access the portal.</div>
+                </div>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label class="form-label">
+                            Email Address <span class="required-dot"></span>
+                        </label>
+                        <div class="input-wrap">
+                            <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+                            <i class="fas fa-envelope input-icon" style="pointer-events:none;"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">
+                            Password <span class="required-dot"></span>
+                        </label>
+                        <div class="input-wrap">
+                            <input type="password" id="password" class="form-input" placeholder="••••••••" required>
+                            <i class="fas fa-lock input-icon" style="pointer-events:none;"></i>
+                            <button type="button" class="toggle-password" id="togglePassword">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="terms-row">
+                        <input type="checkbox" id="termsCheckbox" class="terms-checkbox" required>
+                        <label for="termsCheckbox" class="terms-label">
+                            I agree to the terms and conditions of the AESRN member portal.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="login-btn" id="loginBtn">
+                        <div class="login-btn-inner">
+                            <i class="fas fa-arrow-right-to-bracket"></i>
+                            <span>Sign in to Portal</span>
+                        </div>
+                    </button>
+
+                    <div class="error-msg" id="errorMessage">
+                        <i class="fas fa-circle-exclamation" style="margin-right:6px;"></i>
+                        Invalid credentials. Please check your email and password.
+                    </div>
+                    <div class="attempts-warning" id="attemptsWarning">
+                        <i class="fas fa-clock" style="margin-right:6px;"></i>
+                        Too many attempts. Wait <span id="cooldownCounter">60</span>s before trying again.
+                    </div>
+                </form>
+
+                <div class="login-footer">
+                    <a href="https://www.aesrn.net/#home" class="go-to-aesrn">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to AESRN website
+                    </a>
+                    <button class="theme-toggle-login" id="loginThemeToggle" title="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="login-copyright">
+        <span>© <span id="loginYear"></span> African Emerging Scholars Research Network (AESRN)</span>
+        <span>Powered by AESRN · Ghana</span>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     DASHBOARD - COMPLETELY UNCHANGED
+     (All original functionality preserved)
+══════════════════════════════════════ -->
+<div class="dashboard" id="dashboardContainer">
+
+    <!-- Top navigation bar -->
+    <div class="topbar">
+        <div class="topbar-brand">
+            <img src="https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/Networknewlogo.png" alt="AESRN" class="topbar-logo" loading="eager">
+            <span class="topbar-name">AESRN</span>
+        </div>
+        <div class="topbar-divider"></div>
+        <div class="topbar-section-label">Member Portal</div>
+
+        <div class="topbar-right">
+            <div class="topbar-time" id="liveClock">–</div>
+            <button class="icon-btn" id="dashboardThemeToggle" title="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="admin-return-btn" id="returnToAdminView">
+                <i class="fas fa-arrow-left"></i> Admin View
+            </button>
+            <button class="logout-btn-top" id="logoutBtn">
+                <i class="fas fa-right-from-bracket"></i>
+                <span>Sign Out</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="dashboard-body">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-profile">
+                <img src="" alt="Member" class="sidebar-photo" id="memberPhoto" loading="eager">
+                <div class="sidebar-name" id="profileName">–</div>
+                <div class="sidebar-role" id="profileRole">–</div>
+                <div class="sidebar-workplace" id="profileWork">–</div>
+            </div>
+
+            <div class="sidebar-section-label">Quick Actions</div>
+            <nav class="sidebar-nav">
+                <div class="nav-item active" id="nav-overview">
+                    <i class="fas fa-gauge-high"></i> Overview
+                </div>
+                <div class="nav-item" id="viewAssignment">
+                    <i class="fas fa-clipboard-list"></i> Assignments
+                    <span class="nav-badge">View</span>
+                </div>
+                <div class="nav-item" id="makeSubmission">
+                    <i class="fas fa-upload"></i> Submit Work
+                </div>
+                <div class="nav-item" id="viewCorrections">
+                    <i class="fas fa-pen-to-square"></i> Corrections
+                </div>
+                <div class="nav-item" id="reviewMaterials">
+                    <i class="fas fa-book-open"></i> Resources
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div>© <span id="footerYear"></span> AESRN</div>
+                <div style="margin-top:4px;">
+                    <a href="mailto:research.aesrn@yahoo.com" style="color:var(--teal); text-decoration:none; font-size:11px;">
+                        research.aesrn@yahoo.com
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="main-content">
+            <div class="page-header">
+                <div>
+                    <div class="page-eyebrow">Member Portal · Dashboard</div>
+                    <div class="page-title">Welcome back</div>
+                    <div class="page-date" id="todayDate">–</div>
+                </div>
+            </div>
+
+            <!-- Session status banner -->
+            <div class="status-banner">
+                <div class="status-dot"></div>
+                <div class="status-text">
+                    <div class="status-title">Session Active — <span id="statusName">–</span></div>
+                    <div class="status-sub">Authenticated · <span id="statusInstitution">–</span></div>
+                </div>
+                <div class="status-session-id" id="statusSessionId">–</div>
+            </div>
+
+            <!-- Two-column layout: actions + calendar -->
+            <div class="content-grid">
+                <!-- Quick actions card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title"><i class="fas fa-bolt"></i> Quick Actions</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="action-list">
+                            <div class="action-item" id="qa-assignments">
+                                <div class="action-icon-wrap">📋</div>
+                                <div class="action-info">
+                                    <div class="action-title">Assignments</div>
+                                    <div class="action-desc">View current tasks and deadlines</div>
+                                </div>
+                                <i class="fas fa-arrow-right action-arrow"></i>
+                            </div>
+                            <div class="action-item" id="qa-submit">
+                                <div class="action-icon-wrap">📤</div>
+                                <div class="action-info">
+                                    <div class="action-title">Submit Work</div>
+                                    <div class="action-desc">Upload your completed assignment</div>
+                                </div>
+                                <i class="fas fa-arrow-right action-arrow"></i>
+                            </div>
+                            <div class="action-item" id="qa-corrections">
+                                <div class="action-icon-wrap">✏️</div>
+                                <div class="action-info">
+                                    <div class="action-title">Corrections</div>
+                                    <div class="action-desc">Review feedback and revisions</div>
+                                </div>
+                                <i class="fas fa-arrow-right action-arrow"></i>
+                            </div>
+                            <div class="action-item" id="qa-resources">
+                                <div class="action-icon-wrap">📚</div>
+                                <div class="action-info">
+                                    <div class="action-title">Resources</div>
+                                    <div class="action-desc">Access past review materials</div>
+                                </div>
+                                <i class="fas fa-arrow-right action-arrow"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calendar card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title"><i class="fas fa-calendar-days"></i> <span id="calendarMonthYear">–</span></div>
+                    </div>
+                    <div class="card-body" style="padding: 8px 12px;">
+                        <div id="miniCalendar" style="height:280px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Members section (founder only) -->
+            <div id="membersSection" style="display:none;">
+                <div class="section-header">
+                    <div class="section-title-text">All Members</div>
+                    <div class="section-count" id="memberCount">–</div>
+                    <span style="font-size:12px; color:var(--text-faint);">Click any card to view their dashboard</span>
+                </div>
+                <div class="members-grid" id="membersGrid"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FORM IFRAME CONTAINER -->
+<div class="form-container" id="formContainer">
+    <div class="form-header">
+        <button class="back-btn" id="backToDashboardBtn">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </button>
+        <div class="form-header-title">Submission Form · AESRN</div>
+    </div>
+    <div class="loading-overlay" id="iframeLoading">
+        <div class="loading-ring"></div>
+        <div class="loading-text">Loading Form</div>
+    </div>
+    <iframe id="tallyIframe" allow="fullscreen" style="visibility:hidden;"></iframe>
+</div>
+
+<!-- LOGOUT MODAL -->
+<div class="modal-overlay" id="logoutModal">
+    <div class="modal-card">
+        <div class="modal-icon"><i class="fas fa-right-from-bracket"></i></div>
+        <div class="modal-title">End Session?</div>
+        <div class="modal-sub">You will be signed out of the AESRN portal.</div>
+        <div class="modal-actions">
+            <button class="btn-secondary" id="cancelLogout">Stay Signed In</button>
+            <button class="btn-danger" id="confirmLogout">Sign Out</button>
+        </div>
+    </div>
+</div>
+
+<!-- INACTIVITY WARNING -->
+<div class="inactivity-box" id="inactivityWarning">
+    <div class="inactivity-icon"><i class="fas fa-hourglass-half"></i></div>
+    <div class="inactivity-title">Session Timeout</div>
+    <div class="inactivity-timer" id="inactivityTimer">0:30</div>
+    <div class="inactivity-sub">Your session will expire due to inactivity.</div>
+    <button class="keep-btn" id="keepSessionBtn">Continue Session</button>
+</div>
+
+<!-- LOGOUT NOTIFICATION -->
+<div class="logout-notification" id="logoutNotification">
+    <div class="logout-emoji">👋🏾</div>
+    <div class="logout-title">Signed Out</div>
+    <div class="logout-countdown">Redirecting in <span id="logoutCountdown">5</span> seconds…</div>
+</div>
+
+<script>
+(function() {
+    // ─── MEMBER DATA ───────────────────────────────────────────────────
+    // FIX 6: ADDED EMAIL Edna.die@tth.gov.gh
+    const memberDetails = new Map([
+        ["malikseidu4@gmail.com", { fullName:"Abdul-Malik Seidu", title:"Member", workplace:"Nurses' & Midwives' Training College, Tamale", photo:"https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/malik.png" }],
+        ["abdulrazakiddrisu1@gmail.com", { fullName:"Iddrisu Abdul-Razak", title:"Member", workplace:"Tamale Teaching Hospital", photo:"https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/razak.png" }],
+        ["abdul0247080685@gmail.com", { fullName:"Abdul Latif Abdul Rahman", title:"Member", workplace:"Le Mete Ghana, Tamale Urology Centre", photo:"https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/Latif.png" }],
+        ["ednadie93@gmail.com", { fullName:"Edna Die", title:"Member", workplace:"Tamale Teaching Hospital", photo:"https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/Edna.png" }],
+        ["edna.die@tth.gov.gh", { fullName:"Edna Die", title:"Member", workplace:"Tamale Teaching Hospital", photo:"https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/Edna.png" }],
+        ["issahaqalhassan26@gmail.com", { fullName:"Alhassan Issahaq", title:"Member", workplace:"Nurses' & Midwives' Training College, Tamale", photo:"https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/Alhassan.png" }],
+        ["benlaar22@gmail.com", { fullName:"Benjamin Laar Likibi", title:"Member", workplace:"", photo:"https://raw.githubusercontent.com/shinyhealthtools/AESRN-website/main/Benjamin.png" }],
+        ["mohammed.mudasir@tth.gov.gh", { fullName:"Mudasir Mohammed Ibrahim", title:"Founder & Network Coordinator", workplace:"Tamale Teaching Hospital", photo:"https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/mudasir.png" }],
+        ["mudassiribrahim30@gmail.com", { fullName:"Mudasir Mohammed Ibrahim", title:"Founder & Network Coordinator", workplace:"Tamale Teaching Hospital", photo:"https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/mudasir.png" }]
+    ]);
+
+    const correctionsMap = new Map([
+        ["malikseidu4@gmail.com", "https://1drv.ms/f/c/3ce355b70d76f4f7/IgB-j5WKXyAiTJKQUz31JWt3AeUvkbMaJwqoVEqy6heLn38?e=Se7G5K"],
+        ["abdulrazakiddrisu1@gmail.com", "https://1drv.ms/f/c/3ce355b70d76f4f7/IgAkSYIt8madRI2Go09A3Mp5AUC6YhEwixSIOQIdGVzY0BA?e=tTb7lf"],
+        ["abdul0247080685@gmail.com", "https://1drv.ms/f/c/3ce355b70d76f4f7/IgAUrpYKa3eNT6oyFJ4uotsnAeHk2gmmLTxveiwUNzxmJOo?e=maJ2T4"],
+        ["ednadie93@gmail.com", "https://1drv.ms/f/c/3ce355b70d76f4f7/IgDkoQ_S43q7RJcT4-1zNeSfAV4cx5mKIq6iEDhlA7Fxb0c?e=17L9DN"],
+        ["edna.die@tth.gov.gh", "https://1drv.ms/f/c/3ce355b70d76f4f7/IgDkoQ_S43q7RJcT4-1zNeSfAV4cx5mKIq6iEDhlA7Fxb0c?e=17L9DN"],
+        ["issahaqalhassan26@gmail.com", "https://1drv.ms/f/c/3ce355b70d76f4f7/IgB50tPBhboUTY1GgJpZMXwmAfgP1L0aTOjwEJ8sTrh3hj8?e=ODm9Ov"],
+        ["benlaar22@gmail.com", "https://1drv.ms/f/c/3ce355b70d76f4f7/IgAMxT0cvhgNTr6bqmfq_kvSATiUtnZzsYjinK9nWYZs-MY?e=4vf4BZ"],
+        ["mohammed.mudasir@tth.gov.gh", "https://swpgh-my.sharepoint.com/:f:/g/personal/mohammed_mudasir_tth_gov_gh/IgA_Wlt3rN4TToHhLhObdU30AcaZzPZJbmlpAHBVGN1fCMc?e=TD7Ls1"],
+        ["mudassiribrahim30@gmail.com", "https://swpgh-my.sharepoint.com/:f:/g/personal/mohammed_mudasir_tth_gov_gh/IgA_Wlt3rN4TToHhLhObdU30AcaZzPZJbmlpAHBVGN1fCMc?e=TD7Ls1"]
+    ]);
+
+    const DEFAULT_CORR = "https://onedrive.live.com/";
+    const CORRECT_PASSWORD = "Scholar123";
+    const FOUNDER_EMAILS = ["mohammed.mudasir@tth.gov.gh", "mudassiribrahim30@gmail.com"];
+
+    // ─── STATE ─────────────────────────────────────────────────────────
+    let currentUserEmail = null, currentUserData = null;
+    let originalFounderEmail = null, isViewingMember = false;
+    let failedAttempts = 0, cooldownTimer = null, cooldownSeconds = 0;
+    let isDashboard = false, warningActive = false;
+    let inactivityTimer, warningTimer, countdownInterval;
+    let iframeInitialized = false;
+    const SESSION_TIMEOUT = 60000;  // UPDATED: 1 minute idle timeout (60,000ms)
+    const WARNING_TIME = 30000;     // 30 seconds warning before timeout
+    
+            // FIX: Force reload images with cache busting
+        function fixProfileImages() {
+            setTimeout(function() {
+                // Fix sidebar photo
+                const sidebarPhoto = document.getElementById('memberPhoto');
+                if (sidebarPhoto && sidebarPhoto.src) {
+                    const currentSrc = sidebarPhoto.src;
+                    if (!sidebarPhoto.complete || sidebarPhoto.naturalWidth === 0) {
+                        // Add cache buster
+                        sidebarPhoto.src = currentSrc.split('?')[0] + '?t=' + Date.now();
+                    }
+                }
+                
+                // Fix all member card photos
+                const memberPhotos = document.querySelectorAll('.member-card-photo');
+                memberPhotos.forEach(function(img) {
+                    if (!img.complete || img.naturalWidth === 0) {
+                        const currentSrc = img.src;
+                        if (currentSrc && !currentSrc.includes('Networknewlogo')) {
+                            img.src = currentSrc.split('?')[0] + '?t=' + Date.now();
+                        }
+                    }
+                });
+            }, 100);
+        }
+        
+        // Call this after rendering dashboard
+        const originalRenderDashboard = renderDashboard;
+        renderDashboard = function() {
+            originalRenderDashboard();
+            fixProfileImages();
+        };
+
+    // ─── THEME ─────────────────────────────────────────────────────────
+    function initTheme() {
+        const saved = localStorage.getItem('aesrn_theme') || 'light';
+        if (saved === 'dark') { document.body.classList.add('dark-theme'); updateThemeIcons('dark'); }
+        else updateThemeIcons('light');
+    }
+    function toggleTheme() {
+        const isDark = document.body.classList.toggle('dark-theme');
+        localStorage.setItem('aesrn_theme', isDark ? 'dark' : 'light');
+        updateThemeIcons(isDark ? 'dark' : 'light');
+    }
+    function updateThemeIcons(mode) {
+        document.querySelectorAll('.theme-toggle-login i, #dashboardThemeToggle i').forEach(icon => {
+            icon.className = mode === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        });
+    }
+
+    // ─── SESSION ───────────────────────────────────────────────────────
+    function getActiveSessions() { return JSON.parse(localStorage.getItem('aesrn_active_sessions')||'{}'); }
+    function saveActiveSessions(s) { localStorage.setItem('aesrn_active_sessions', JSON.stringify(s)); }
+    function generateSessionId() { return 'AESRN-'+Date.now().toString(36).toUpperCase()+'-'+Math.random().toString(36).substring(2,6).toUpperCase(); }
+
+    function isLoggedInElsewhere(email) {
+        let s = getActiveSessions(); let sess = s[email];
+        if (!sess) return false;
+        if (Date.now() > sess.expiry) { delete s[email]; saveActiveSessions(s); return false; }
+        return sess.sessionId !== sessionStorage.getItem('aesrn_sid');
+    }
+    function registerSession(email, name) {
+        let sid = generateSessionId();
+        let s = getActiveSessions();
+        s[email] = { sessionId: sid, expiry: Date.now()+SESSION_TIMEOUT, name };
+        saveActiveSessions(s);
+        sessionStorage.setItem('aesrn_sid', sid);
+        localStorage.setItem('aesrn_user_session', JSON.stringify({ email, name, sessionId: sid, expiry: Date.now()+SESSION_TIMEOUT }));
+        return sid;
+    }
+    function removeSession(email) {
+        let s = getActiveSessions(); delete s[email];
+        saveActiveSessions(s);
+        localStorage.removeItem('aesrn_user_session');
+        sessionStorage.removeItem('aesrn_sid');
+    }
+    function checkExistingSession() {
+        let stored = JSON.parse(localStorage.getItem('aesrn_user_session')||'{}');
+        if (stored.email && stored.sessionId && Date.now() < stored.expiry) {
+            let s = getActiveSessions();
+            if (s[stored.email] && s[stored.email].sessionId === stored.sessionId) {
+                currentUserEmail = stored.email;
+                currentUserData = memberDetails.get(stored.email);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // ─── INACTIVITY ────────────────────────────────────────────────────
+    function clearTimers() {
+        clearTimeout(inactivityTimer); clearTimeout(warningTimer);
+        if (countdownInterval) clearInterval(countdownInterval);
+        hideWarning();
+    }
+    function hideWarning() {
+        warningActive = false;
+        document.getElementById('inactivityWarning').style.display = 'none';
+    }
+    function resetTimers() {
+        if (!isDashboard) return;
+        clearTimers(); updateSessionExpiry();
+        warningTimer = setTimeout(() => { if (isDashboard && !warningActive) showWarning(); }, WARNING_TIME);
+        inactivityTimer = setTimeout(() => { if (isDashboard) forceLogout(); }, SESSION_TIMEOUT);
+    }
+    function showWarning() {
+        if (warningActive || !isDashboard) return;
+        warningActive = true;
+        document.getElementById('inactivityWarning').style.display = 'block';
+        detachListeners();
+        let seconds = 30;
+        let timerEl = document.getElementById('inactivityTimer');
+        function tick() {
+            let m = Math.floor(seconds/60), s = seconds%60;
+            timerEl.textContent = m+':'+(s<10?'0':'')+s;
+            if (seconds <= 0) { clearInterval(countdownInterval); if (isDashboard) forceLogout(); }
+            seconds--;
+        }
+        tick(); countdownInterval = setInterval(tick, 1000);
+    }
+    function continueSession() { if (isDashboard) { hideWarning(); resetTimers(); updateSessionExpiry(); attachListeners(); } }
+    function updateSessionExpiry() {
+        if (!currentUserEmail) return;
+        let s = getActiveSessions();
+        if (s[currentUserEmail]) { s[currentUserEmail].expiry = Date.now()+SESSION_TIMEOUT; saveActiveSessions(s); }
+    }
+    function attachListeners() {
+        ['mousemove','keydown','click','scroll','touchstart'].forEach(ev => document.addEventListener(ev, resetTimers));
+    }
+    function detachListeners() {
+        ['mousemove','keydown','click','scroll','touchstart'].forEach(ev => document.removeEventListener(ev, resetTimers));
+    }
+    function forceLogout() { clearTimers(); performLogout(true); }
+
+    // ─── COOLDOWN ──────────────────────────────────────────────────────
+    function startCooldown() {
+        const btn = document.getElementById('loginBtn');
+        const warn = document.getElementById('attemptsWarning');
+        btn.disabled = true; warn.style.display = 'block';
+        cooldownSeconds = 60;
+        function tick() {
+            document.getElementById('cooldownCounter').textContent = cooldownSeconds;
+            if (cooldownSeconds <= 0) { clearInterval(cooldownTimer); btn.disabled = false; warn.style.display = 'none'; failedAttempts = 0; }
+            cooldownSeconds--;
+        }
+        tick(); cooldownTimer = setInterval(tick, 1000);
+    }
+
+    // ─── LOADERS ───────────────────────────────────────────────────────
+    function showLoader(id, text) {
+        const loader = document.getElementById(id);
+        if (text && loader.querySelector('.tl-text')) loader.querySelector('.tl-text').textContent = text;
+        loader.classList.add('active');
+    }
+    function hideLoader(id) { document.getElementById(id).classList.remove('active'); }
+    function showPageTransitionLoader(text, callback, delay=2800) {
+        document.getElementById('pageTransitionText').textContent = text || 'Loading';
+        showLoader('pageTransitionLoader');
+        setTimeout(() => { hideLoader('pageTransitionLoader'); if (callback) callback(); }, delay);
+    }
+
+    // ─── RENDER DASHBOARD ──────────────────────────────────────────────
+    function renderDashboard() {
+        if (!currentUserData) return;
+        document.getElementById('profileName').textContent = currentUserData.fullName;
+        document.getElementById('profileRole').textContent = currentUserData.title;
+        document.getElementById('profileWork').textContent = currentUserData.workplace;
+        document.getElementById('memberPhoto').src = currentUserData.photo;
+        document.getElementById('memberPhoto').setAttribute('loading','eager');
+        document.getElementById('statusName').textContent = currentUserData.fullName;
+        document.getElementById('statusInstitution').textContent = currentUserData.workplace;
+        document.getElementById('statusSessionId').textContent = sessionStorage.getItem('aesrn_sid') || '–';
+        initCalendar();
+        updateTodayDate();
+    }
+    function updateTodayDate() {
+        const d = new Date();
+        const opts = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+        document.getElementById('todayDate').textContent = d.toLocaleDateString('en-US', opts);
+    }
+
+    // ─── CALENDAR ──────────────────────────────────────────────────────
+    let calendar = null;
+    function initCalendar() {
+        let calEl = document.getElementById('miniCalendar');
+        if (!calEl) return;
+        if (calendar) calendar.destroy();
+        calendar = new FullCalendar.Calendar(calEl, {
+            initialView: 'dayGridMonth', 
+            height: 280,
+            headerToolbar: { start:'', center:'title', end:'' },
+            titleFormat: { year:'numeric', month:'long' },
+            fixedWeekCount: false, 
+            showNonCurrentDates: true,
+            dayMaxEvents: false,
+            contentHeight: 'auto'
+        });
+        calendar.render();
+        const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        const today = new Date();
+        document.getElementById('calendarMonthYear').textContent = months[today.getMonth()] + ' ' + today.getFullYear();
+    }
+
+    // ─── CLOCK ─────────────────────────────────────────────────────────
+    function updateClock() {
+        const t = new Date().toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:true });
+        document.getElementById('liveClock').textContent = t;
+    }
+    setInterval(updateClock, 1000);
+
+    // ─── MEMBER CARDS (FOUNDER) ─────────────────────────────────────────
+    function renderMemberCards() {
+        const grid = document.getElementById('membersGrid');
+        grid.innerHTML = '';
+        const members = Array.from(memberDetails.entries()).filter(([e]) => !FOUNDER_EMAILS.includes(e));
+        document.getElementById('memberCount').textContent = members.length + ' members';
+        members.forEach(([email, data]) => {
+            const card = document.createElement('div');
+            card.className = 'member-card';
+            card.setAttribute('data-email', email);
+            card.innerHTML = `
+                <img src="${data.photo}" alt="${data.fullName}" class="member-card-photo" loading="lazy"
+                    onerror="this.src='https://raw.githubusercontent.com/mudassiribrahim12/AESRN-website/main/Networknewlogo.png'">
+                <div class="member-card-role">${data.title}</div>
+                <div class="member-card-name">${data.fullName}</div>
+                <div class="member-card-institution">${data.workplace}</div>
+                <div class="member-card-cta"><i class="fas fa-arrow-right"></i> View Dashboard</div>
+            `;
+            card.addEventListener('click', () => {
+                if (warningActive) return;
+                showPageTransitionLoader('Switching View', () => switchToMemberView(email));
+            });
+            grid.appendChild(card);
+        });
+    }
+    function switchToMemberView(email) {
+        if (!memberDetails.has(email)) return;
+        if (!isViewingMember) {
+            originalFounderEmail = currentUserEmail;
+            isViewingMember = true;
+            localStorage.setItem('aesrn_viewing_member', email);
+            localStorage.setItem('aesrn_original_founder', originalFounderEmail);
+        }
+        currentUserEmail = email;
+        currentUserData = memberDetails.get(email);
+        renderDashboard();
+        document.getElementById('membersSection').style.display = 'none';
+        document.getElementById('returnToAdminView').style.display = 'inline-flex';
+        resetTimers();
+    }
+    function returnToAdminView() {
+        if (!originalFounderEmail || !memberDetails.has(originalFounderEmail)) return;
+        showPageTransitionLoader('Returning to Admin View', () => {
+            currentUserEmail = originalFounderEmail;
+            currentUserData = memberDetails.get(originalFounderEmail);
+            renderDashboard();
+            document.getElementById('membersSection').style.display = 'block';
+            document.getElementById('returnToAdminView').style.display = 'none';
+            isViewingMember = false;
+            localStorage.removeItem('aesrn_viewing_member');
+            localStorage.removeItem('aesrn_original_founder');
+            originalFounderEmail = null;
+            resetTimers();
+        });
+    }
+
+    // ─── IFRAME ────────────────────────────────────────────────────────
+    function initSubmissionIframe() {
+        if (iframeInitialized) return;
+        const iframe = document.getElementById('tallyIframe');
+        iframe.src = "https://tally.so/r/dWd6gA?transparentBackground=1";
+        iframeInitialized = true;
+        document.getElementById('iframeLoading').style.display = 'flex';
+        iframe.style.visibility = 'hidden';
+        iframe.addEventListener('load', function onLoad() {
+            document.getElementById('iframeLoading').style.display = 'none';
+            iframe.style.visibility = 'visible';
+            iframe.removeEventListener('load', onLoad);
+        });
+    }
+
+    // ─── NAVIGATION ACTIONS ────────────────────────────────────────────
+    function isFounder(email) { return FOUNDER_EMAILS.includes(email); }
+
+    function openAssignment() {
+        if (warningActive) return;
+        showPageTransitionLoader('Opening Assignments', () => {
+            window.location.href = 'https://1drv.ms/f/c/3ce355b70d76f4f7/IgCN21mbAPKQTKG4AarE5eRZATTE5Rgm5C6i3-V73TmnbY0?e=NwH5LU';
+        });
+    }
+    function openSubmissionForm() {
+        if (warningActive) return;
+        showPageTransitionLoader('Loading Submission Form', () => {
+            document.getElementById('dashboardContainer').style.display = 'none';
+            document.getElementById('formContainer').style.display = 'flex';
+            initSubmissionIframe();
+        });
+    }
+    function closeForm() {
+        showPageTransitionLoader('Returning to Dashboard', () => {
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('dashboardContainer').style.display = 'block';
+        });
+    }
+    function openCorrections() {
+        if (warningActive || !currentUserEmail) return;
+        showPageTransitionLoader('Opening Corrections', () => {
+            window.location.href = correctionsMap.get(currentUserEmail) || DEFAULT_CORR;
+        });
+    }
+    function openResources() {
+        if (warningActive) return;
+        showPageTransitionLoader('Opening Resources', () => {
+            window.location.href = 'https://1drv.ms/f/c/3ce355b70d76f4f7/IgD8N3r-XMAGQoQXcNUACYTRAeR849NRSifhvBB5b-HyejE?e=yjYhWY';
+        });
+    }
+
+    // ─── LOGIN ─────────────────────────────────────────────────────────
+    function handleLogin(e) {
+        e.preventDefault();
+        if (document.getElementById('loginBtn').disabled) return;
+        if (!document.getElementById('termsCheckbox').checked) {
+            alert('Please agree to the terms and conditions before signing in.');
+            return;
+        }
+        const email = document.getElementById('email').value.trim().toLowerCase();
+        const pass = document.getElementById('password').value;
+        document.getElementById('errorMessage').style.display = 'none';
+        let matchedKey = null;
+        for (let key of memberDetails.keys()) {
+            if (key.toLowerCase() === email) { matchedKey = key; break; }
+        }
+        if (!matchedKey || pass !== CORRECT_PASSWORD) {
+            failedAttempts++;
+            document.getElementById('errorMessage').style.display = 'block';
+            if (failedAttempts >= 5) startCooldown();
+            return;
+        }
+        if (isLoggedInElsewhere(matchedKey)) { alert('Already signed in from another device.'); return; }
+        currentUserEmail = matchedKey;
+        currentUserData = memberDetails.get(matchedKey);
+        const card = document.getElementById('loginCard');
+        card.style.opacity = '0'; card.style.transform = 'scale(0.95)';
+        showLoader('globalCircleLoader', 'Authenticating');
+        setTimeout(() => { document.getElementById('loginContainer').style.display = 'none'; card.style.opacity = '1'; card.style.transform = ''; }, 300);
+        setTimeout(() => {
+            hideLoader('globalCircleLoader');
+            registerSession(currentUserEmail, currentUserData.fullName);
+            document.getElementById('dashboardContainer').style.display = 'block';
+            renderDashboard();
+            if (isFounder(currentUserEmail)) {
+                document.getElementById('membersSection').style.display = 'block';
+                renderMemberCards();
+                const savedMember = localStorage.getItem('aesrn_viewing_member');
+                const savedFounder = localStorage.getItem('aesrn_original_founder');
+                if (savedMember && savedFounder) {
+                    originalFounderEmail = savedFounder; isViewingMember = true;
+                    switchToMemberView(savedMember);
+                }
+            } else {
+                document.getElementById('membersSection').style.display = 'none';
+            }
+            document.getElementById('returnToAdminView').style.display = isViewingMember ? 'inline-flex' : 'none';
+            isDashboard = true; resetTimers(); attachListeners(); initSubmissionIframe();
+        }, 3200);
+    }
+
+    // ─── LOGOUT ────────────────────────────────────────────────────────
+    function performLogout() {
+        if (currentUserEmail) removeSession(currentUserEmail);
+        isDashboard = false; clearTimers(); detachListeners();
+        document.getElementById('dashboardContainer').style.display = 'none';
+        document.getElementById('formContainer').style.display = 'none';
+        document.getElementById('logoutModal').style.display = 'none';
+        hideWarning();
+        currentUserEmail = null; currentUserData = null;
+        isViewingMember = false; originalFounderEmail = null;
+        localStorage.removeItem('aesrn_viewing_member');
+        localStorage.removeItem('aesrn_original_founder');
+        const notif = document.getElementById('logoutNotification');
+        const countEl = document.getElementById('logoutCountdown');
+        notif.style.display = 'block';
+        let sec = 5; countEl.textContent = sec;
+        const interval = setInterval(() => {
+            sec--; countEl.textContent = sec;
+            if (sec <= 0) {
+                clearInterval(interval); notif.style.display = 'none';
+                document.getElementById('loginContainer').style.display = 'block';
+                document.getElementById('loginForm').reset();
+            }
+        }, 1000);
+    }
+
+    // ─── EVENT LISTENERS ───────────────────────────────────────────────
+    document.getElementById('loginForm').addEventListener('submit', handleLogin);
+    document.getElementById('togglePassword').addEventListener('click', function() {
+        const pwd = document.getElementById('password');
+        const icon = this.querySelector('i');
+        if (pwd.type === 'password') { pwd.type = 'text'; icon.className = 'far fa-eye-slash'; }
+        else { pwd.type = 'password'; icon.className = 'far fa-eye'; }
+    });
+
+    // Sidebar nav
+    document.getElementById('viewAssignment').addEventListener('click', openAssignment);
+    document.getElementById('makeSubmission').addEventListener('click', openSubmissionForm);
+    document.getElementById('viewCorrections').addEventListener('click', openCorrections);
+    document.getElementById('reviewMaterials').addEventListener('click', openResources);
+    document.getElementById('nav-overview').addEventListener('click', () => {
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        document.getElementById('nav-overview').classList.add('active');
+    });
+
+    // Quick actions in main content
+    document.getElementById('qa-assignments').addEventListener('click', openAssignment);
+    document.getElementById('qa-submit').addEventListener('click', openSubmissionForm);
+    document.getElementById('qa-corrections').addEventListener('click', openCorrections);
+    document.getElementById('qa-resources').addEventListener('click', openResources);
+
+    document.getElementById('backToDashboardBtn').addEventListener('click', closeForm);
+    document.getElementById('returnToAdminView').addEventListener('click', returnToAdminView);
+    document.getElementById('logoutBtn').addEventListener('click', () => { document.getElementById('logoutModal').style.display = 'flex'; });
+    document.getElementById('cancelLogout').addEventListener('click', () => { document.getElementById('logoutModal').style.display = 'none'; });
+    document.getElementById('confirmLogout').addEventListener('click', () => performLogout());
+    document.getElementById('logoutModal').addEventListener('click', e => { if (e.target.id === 'logoutModal') e.target.style.display = 'none'; });
+    document.getElementById('keepSessionBtn').addEventListener('click', continueSession);
+    document.getElementById('loginThemeToggle').addEventListener('click', toggleTheme);
+    document.getElementById('dashboardThemeToggle').addEventListener('click', toggleTheme);
+
+    // Session check interval
+    setInterval(() => {
+        if (currentUserEmail && !isViewingMember) {
+            const s = getActiveSessions();
+            if (!s[currentUserEmail] || s[currentUserEmail].sessionId !== sessionStorage.getItem('aesrn_sid')) {
+                alert('Session ended (another login detected)');
+                performLogout();
+            }
+        }
+    }, 30000);
+
+    // ─── INIT ──────────────────────────────────────────────────────────
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+    document.getElementById('loginYear').textContent = new Date().getFullYear();
+
+    window.addEventListener('load', () => {
+        initTheme();
+        setTimeout(() => {
+            const loader = document.getElementById('appLoader');
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+                if (checkExistingSession()) {
+                    document.getElementById('dashboardContainer').style.display = 'block';
+                    renderDashboard();
+                    if (isFounder(currentUserEmail)) {
+                        document.getElementById('membersSection').style.display = 'block';
+                        renderMemberCards();
+                        const savedMember = localStorage.getItem('aesrn_viewing_member');
+                        const savedFounder = localStorage.getItem('aesrn_original_founder');
+                        if (savedMember && savedFounder) {
+                            originalFounderEmail = savedFounder; isViewingMember = true;
+                            switchToMemberView(savedMember);
+                        }
+                    } else {
+                        document.getElementById('membersSection').style.display = 'none';
+                    }
+                    document.getElementById('returnToAdminView').style.display = isViewingMember ? 'inline-flex' : 'none';
+                    isDashboard = true; resetTimers(); attachListeners(); initSubmissionIframe();
+                } else {
+                    document.getElementById('loginContainer').style.display = 'block';
+                }
+                updateClock();
+            }, 400);
+        }, 3500);
+    });
+})();
+</script>
+</body>
+</html>
